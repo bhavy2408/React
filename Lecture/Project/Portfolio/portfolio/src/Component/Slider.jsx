@@ -88,8 +88,7 @@ const Slider = () => {
 
                                     <a
                                         href={slide.link}
-                                        className="btn btn-light btn-lg fw-semibold"
-                                    >
+                                        className="btn btn-light btn-lg fw-semibold">
                                         {slide.button}
                                     </a>
                                 </div>

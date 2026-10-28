@@ -3,7 +3,32 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Contact = () => {
-   
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((currentData) => ({
+            ...currentData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const subject = encodeURIComponent(formData.subject);
+        const body = encodeURIComponent(
+            `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
+        );
+
+        window.location.href = `mailto:bhavy0033@gmail.com?subject=${subject}&body=${body}`;
+    };
+
     return (
         <section id="contact" className="py-5 bg-light">
             <div className="container">
